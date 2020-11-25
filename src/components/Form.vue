@@ -10,6 +10,7 @@
         @reset.prevent="onReset"
         inline
         v-if="show"
+        class="reservas-form"
       >
         <div>
           <label for="name">Nombre</label>
@@ -17,6 +18,7 @@
             id="name"
             v-model="form.name"
             placeholder="Ingresar nombre"
+            style="height: 42px;margin: 9px"
           ></b-form-input>
         </div>
         <div>
@@ -49,7 +51,8 @@
           ></b-form-timepicker>
         </div>
         <div>
-          <b-button variant="success" type="submit">Guardar</b-button>
+          <label for=""></label>
+          <b-button variant="success" type="submit" style="height: 40px;padding: inherit 20px;padding-left: 30px;padding-right: 30px;">Guardar</b-button>
         </div>
       </b-form>
     </b-card>
@@ -101,5 +104,8 @@ export default {
   font-size: 18px;
   font-weight: bold;
   color: #22ab49;
+}
+.reservas-form label{
+  justify-content: left !important;
 }
 </style>

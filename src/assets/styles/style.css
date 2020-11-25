@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
-body,
-html,
-input, * {
+body, html, input, * {
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
   margin: 9px;
+}
+body, html, .swal2-container.swal2-center {
+  margin: 0;
 }
 
 #visualization {
@@ -26,8 +27,7 @@ input, * {
   background: #333;
 }
 
-label,
-input {
+label, input {
   vertical-align: middle;
   padding: 0px;
   margin: 0px;
@@ -37,13 +37,30 @@ input {
 }
 
 .buttons-menu {
-  background-color: #555;
+  background-color: rgba(207, 203, 203, 0.8);
   color: #fff;
   padding: 4px;
-  border-radius: 50px;
+  margin: 0;
+  z-index: 999;
+  /* border-radius: 50px; */
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  top: 0;
 }
 
 .buttons-menu:hover {
   opacity: 0.9;
+}
+
+#moveLeft {
+  left: 0;
+  box-shadow: 4px 0 2px #ccc;
+}
+
+#moveRight {
+  right: 0;
+  box-shadow: -4px 0 2px #ccc;
 }

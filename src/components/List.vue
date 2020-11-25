@@ -5,7 +5,7 @@
         <div class="title">Listado de reservas</div>
       </template>
 
-      <b-row>
+      <b-row class="custom-header">
         <b-col>Nombre </b-col>
         <b-col>Horario </b-col>
         <b-col>Acción </b-col>
@@ -31,5 +31,8 @@ export default {
   font-size: 18px;
   font-weight: bold;
   color: #22ab49;
+}
+.custom-header{
+  font-weight: bold;
 }
 </style>
