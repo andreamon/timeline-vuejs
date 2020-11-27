@@ -15,7 +15,7 @@
         <div class="col">
           de {{ reserva.startTime }} a {{ reserva.endTime }}
         </div>
-        <div class="col"><b-button variant="link" v-on:click="$emit('delete', index)" style="color:red" title="Eliminar"><i class="fas fa-trash-alt"></i></b-button></div>
+        <div class="col"><b-button variant="link" v-on:click="$emit('delete', index)" style="color:grey" title="Eliminar"><i class="fas fa-trash-alt"></i></b-button></div>
       </div>
     </b-card>
   </div>

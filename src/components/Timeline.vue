@@ -1,21 +1,25 @@
 <template>
-  <div id="visualization">
-    <!-- <div class="menu">
-    </div> -->
-    <div id="moveLeft" class="buttons-menu" v-on:click="move(0.2)">
+  <div style="margin-top: 3rem">
+    <p style="font-size: 16px; font-weight: bold">Agenda de Reservas</p>
+    <div id="visualization">
+      <div id="moveLeft" class="buttons-menu" v-on:click="move(0.2)">
         <i class="material-icons dp48">arrow_back</i>
-    </div>
-    <div id="moveRight" class="buttons-menu" v-on:click="move(-0.2)">
-      <i class="material-icons dp48">arrow_forward</i>
+      </div>
+      <div id="moveRight" class="buttons-menu" v-on:click="move(-0.2)">
+        <i class="material-icons dp48">arrow_forward</i>
+      </div>
     </div>
   </div>
 </template>
 <script>
 import vis from "vis";
+import moment from "moment";
+
 export default {
   data: function () {
     return {
       timeline: null,
+      input: 0,
     };
   },
   name: "Timeline",
@@ -34,8 +38,20 @@ export default {
         axis: "top",
         item: "top",
       },
-      zoomMax: 87600900, // 10,000 years is maximum possible
-      zoomMin: 10000000, // 10ms
+      start: moment().format('YYYY-M-D'),
+      zoomMax: 18000000, // 10,000 years is maximum possible
+      zoomMin: 10, // 10ms
+      showMajorLabels: false,
+      timeAxis: { scale: "minute", step: 15 },
+      format: {
+        minorLabels: function (date) {
+          if (date.minutes() == 0) {
+            return `<span class="hour">${date.format("h a")}</span>`;
+          } else {
+            return `<span class="minutes">${date.format("mm")} min</span>`;
+          }
+        },
+      },
     };
     this.timeline = new vis.Timeline(container, this.reservas, options);
   },
